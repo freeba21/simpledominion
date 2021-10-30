@@ -13,7 +13,7 @@ public class Hand {
     public LinkedList<CardInterface> inHand;
     public Hand(Deck deck){
         this.inHand=new LinkedList<>();
-        LinkedList<CardInterface> nev=deck.draw(5);
+        LinkedList<CardInterface> nev= (LinkedList<CardInterface>) deck.draw(5);
         for (int i=0;i<5;i++){
             inHand.add(nev.get(i));
         }
