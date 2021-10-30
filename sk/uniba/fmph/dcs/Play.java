@@ -1,5 +1,6 @@
 package sk.uniba.fmph.dcs;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Play {
@@ -8,11 +9,16 @@ public class Play {
 -- Trows them to discard
 pile at the end of turn
 */
-    List<CardInterface> cards;
-    public void puTo(List<CardInterface> card){
-        cards=card;
+    LinkedList<CardInterface> cards;
+
+    public void putToPlay(CardInterface card){
+        cards.add(card);
     }
-    public void trowAll(){
-        cards=null;
+    public LinkedList<CardInterface> trowAll(){
+        LinkedList<CardInterface> a=new LinkedList<>();
+        for (int i=0;i<cards.size();i++){
+            a.add(cards.remove());
+        }
+        return a;
     }
 }

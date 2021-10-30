@@ -10,9 +10,9 @@ public class Hand {
 -- Draws cards
 -- Redraw cards
 */
-    public List<CardInterface> inHand;
+    public LinkedList<CardInterface> inHand;
     public Hand(Deck deck){
-        this.inHand=new ArrayList<>();
+        this.inHand=new LinkedList<>();
         LinkedList<CardInterface> nev=deck.draw(5);
         for (int i=0;i<5;i++){
             inHand.add(nev.get(i));
@@ -24,6 +24,17 @@ public class Hand {
     public CardInterface play(int idx){
         if(inHand.size()>idx) return inHand.get(idx);
         return null;
+    }
+    public LinkedList<CardInterface> getHand(){
+        return inHand;
+    }
+    public void drawCard(LinkedList<CardInterface> card){
+        inHand.addAll(card);
+    }
+    public LinkedList<CardInterface> throwsCard(){
+        LinkedList<CardInterface> nev=new LinkedList<>(inHand);
+        inHand=new LinkedList<>();
+        return nev;
     }
 
 }
