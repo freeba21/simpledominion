@@ -5,10 +5,7 @@ public class Card {
     public String description;
     public int cost;
 
-    public int getCard(){
-        int card=name.hashCode();
-        return card;
-    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
